@@ -4,6 +4,12 @@ import { autenticar } from '../middleware/auth.js';
 
 const router = Router();
 
-router.get('/', autenticar, guilda.listar);
+router.use(autenticar);
+
+router.get('/todas', guilda.listarTodas);
+router.get('/', guilda.listar);
+router.get('/:id', guilda.detalhes);
+router.post('/', guilda.criar);
+router.put('/mover/:heroiId', guilda.moverHeroi);
 
 export default router;

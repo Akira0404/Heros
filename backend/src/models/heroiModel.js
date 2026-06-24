@@ -68,3 +68,7 @@ export async function getEstatisticas(usuarioId) {
     guildaMaisForte: guilda[0]?.nome || 'Nenhuma',
   };
 }
+
+export async function moverGuilda(id, guildaId) {
+  await pool.query('UPDATE herois SET guilda_id = ? WHERE id = ?', [guildaId, id]);
+}
